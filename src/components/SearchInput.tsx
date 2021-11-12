@@ -5,10 +5,10 @@ import './SearchView.css';
 interface IProps {
     inputField: any
     handleOnChange: any
-    searchedData: any
+    disabled: boolean
 }
 
-export const SearchInput: React.FC<IProps> = ({inputField, handleOnChange}) => {
+export const SearchInput: React.FC<IProps> = ({inputField, handleOnChange, disabled}) => {
 
   return (
     <div className="search-input">
@@ -21,6 +21,7 @@ export const SearchInput: React.FC<IProps> = ({inputField, handleOnChange}) => {
           onChange={handleOnChange}
           aria-label='What are you searching for?'
           height="40px"
+          disabled={disabled}
         />
         <span className="input-group-append searchicon">
           <div className="input-group-text bg-transparent">

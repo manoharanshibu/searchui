@@ -2,6 +2,12 @@ import * as React from "react";
 import { useEffect, useState, useRef } from "react";
 import TableComponent from './TableComponent';
 
+import TextField from '@mui/material/TextField';
+import DateRangePicker from '@mui/lab/DateRangePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import Box from '@mui/material/Box';
+
 import './SearchView';
 import { SearchInput } from './SearchInput';
 
@@ -21,7 +27,9 @@ const SearchView = () => {
   const { items, loadedItems } = useSelector((state: State) => state.itemsReducer);
 
   const [searchedData, setSearchedData] = useState<any>({ rows: [], columns: [] });
-  const [selected, setSelected] = useState('author')
+  const [selected, setSelected] = useState('author');
+
+  const [value, setValue] = React.useState<any>([null, null]);
 
   useEffect(() => {
     dispatch(fetchItems());
@@ -29,11 +37,16 @@ const SearchView = () => {
 
   useEffect(() => {
     setSearchedData(items)
-  }, [loadedItems, items])
+  }, [loadedItems, items]);
 
-  const handleOnChange = (event: any) => {
+  const onDateChange = (newValue: any) => {
+    setValue(newValue);
+    handleOnChange(null, newValue)
+  }
+
+  const handleOnChange = (event: any, val?: any) => {
     const _items = items.rows;
-    if (event.target.value === '') {
+    if (selected !== 'date' && event.target.value === '') {
       setSearchedData(items);
       return;
     }
@@ -41,7 +54,13 @@ const SearchView = () => {
       if (selected === 'book') {
         return item && item.bookName ? item.bookName.toLowerCase().startsWith(event.target.value.toLowerCase()) : false;
       } else if (selected === 'date') {
-        return item && item.datePublished ? new Date(item.datePublished).getTime() === new Date(event.target.value).getTime() : false
+
+        if (item && item.datePublished) {
+          return new Date(item.datePublished).getTime() >= new Date(val[0]).getTime() &&
+          new Date(item.datePublished).getTime() <= new Date(val[1]).getTime();
+        } else {
+          return false;
+        }
       } else {
         return item && item.author ? item.author.toLowerCase().startsWith(event.target.value.toLowerCase()) : false
       }
@@ -57,10 +76,28 @@ const SearchView = () => {
     <div className="container">
       <div className="search-container">
         <SearchInput
-          searchedData={searchedData}
           inputField={inputField}
           handleOnChange={handleOnChange}
+          disabled={selected === 'date'}
         />
+        <br /><br />
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DateRangePicker
+            startText="Start Date"
+            endText="End Date"
+            value={value}
+            disabled={selected !== 'date'}
+            onChange={onDateChange}
+            renderInput={(startProps, endProps) => (
+              <React.Fragment>
+                <TextField {...startProps} />
+                <Box sx={{ mx: 2 }}> to </Box>
+                <TextField {...endProps} />
+              </React.Fragment>
+            )}
+          />
+        </LocalizationProvider>
+
       </div>
       <div className="radio-container">
         <FormControl component="fieldset">
@@ -70,9 +107,9 @@ const SearchView = () => {
             name="radio-buttons-group"
             onChange={(e: any) => setSelected(e.target.value)}
           >
-            <FormControlLabel value="author" control={<Radio />} label="Search By Author" />
-            <FormControlLabel value="book" control={<Radio />} label="Search By Book Name" />
-            <FormControlLabel value="date" control={<Radio />} label="Search By Date" />
+            <FormControlLabel value="author" control={<Radio />} label="&nbsp;Search By Author" />
+            <FormControlLabel value="book" control={<Radio />} label="&nbsp;Search By Book Name" />
+            <FormControlLabel value="date" control={<Radio />} label="&nbsp;Search By Date" />
           </RadioGroup>
         </FormControl>
       </div>
