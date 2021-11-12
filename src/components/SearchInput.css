@@ -1,0 +1,878 @@
+@import "../../utils/colors";
+@import "../../utils/constants";
+.search-overview {
+    display: block;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    &__pagination {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 30px 121px 0 10px;
+    }
+    &__left-pane-items {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 20px;
+    }
+    &__reset-label {
+        font: normal normal bold 14px "Source Sans Pro";
+        letter-spacing: 1px;
+        color: $COLOR_DARK_BLUE;
+        text-transform: uppercase;
+    }
+    &__title-label {
+        font: normal normal normal 18px "Source Sans Pro";
+        letter-spacing: 0.26px;
+        color: $COLOR_DARK_BLUE;
+        cursor: pointer;
+    }
+    &__subtitle-label {
+        font: normal normal normal 14px "Source Sans Pro";
+        letter-spacing: 0.2px;
+        color: $COLOR_BLACK;
+        padding-top: 6px;
+    }
+    &__content-label {
+        letter-spacing: 0.2px;
+        color: $COLOR_BLACK;
+        padding-top: 4px;
+        padding-right: 55px;
+        text-align: justify;
+    }
+    thead {
+        color: $COLOR_DARK_BLUE;
+        font-size: 16px;
+        letter-spacing: 0.23px;
+        font-family: "Source Sans Pro", Arial, sans-serif;
+    }
+    table>thead>tr>td>span[class*='pull-right'] {
+        float: none !important;
+        margin-left: 4px;
+    }
+    td {
+        border: none;
+    }
+    td:nth-child(1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 180px;
+        color: $COLOR_DARK_BLUE;
+    }
+    td:nth-child(3) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 70px;
+    }
+    td:nth-child(4) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 150px;
+    }
+    td:nth-child(5) {
+        max-width: 50px;
+    }
+    & .table-responsive>td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 500px;
+    }
+    &__button-cotainer {
+        margin: 10px 0;
+    }
+    &__button {
+        color: $COLOR_TEXT_WHITE;
+        background-color: $COLOR_DARK_BLUE;
+        width: 150px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        margin: 30px 0;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        text-align: center;
+        &:disabled {
+            color: #999;
+            background-color: $BG_COLOR;
+            border-color: $BG_COLOR;
+            border-bottom-color: $BORDER_COLOR;
+            pointer-events: none;
+        }
+        @media #{$mobile} {
+            margin: 0 16px;
+            width: 160px;
+        }
+        &:hover:enabled,
+        &:active:enabled,
+        &:focus:enabled {
+            cursor: pointer;
+            text-decoration: none;
+            background-color: $COLOR_HOVER_BLUE;
+            border-color: $COLOR_HOVER_BLUE;
+        }
+    }
+    &__title {
+        align-content: left;
+    }
+    &__header {
+        display: block;
+        margin: 10px;
+        align-content: left;
+        padding: 10px;
+        @media #{$mobile} {
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: row;
+            padding: 20px 100px 20px 20px;
+        }
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: left;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 10px;
+    }
+    &__item {
+        order: 0;
+        text-align: left;
+        padding-left: 20px;
+        width: 130px;
+    }
+    &__item-header {
+        order: 0;
+        text-align: left;
+        padding-left: 20px;
+        width: 130px;
+        color: $COLOR_DARK_BLUE;
+        font-weight: bold;
+    }
+    &__item-contents {
+        order: 0;
+        flex: 1 0 auto;
+        padding-left: 30px;
+    }
+    &__item-header-contents {
+        order: 0;
+        flex: 1 0 auto;
+        padding-left: 30px;
+        color: $COLOR_DARK_BLUE;
+        font-weight: bold;
+    }
+    &__right-arrow {
+        display: block;
+        position: relative;
+    }
+    &__icon-right {
+        position: absolute;
+        display: block;
+    }
+    &__icon-right-hover {
+        position: absolute;
+        display: none;
+    }
+    &__header-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__semantic-help {
+        display: flex;
+    }
+    &__view-toggle-container {
+        float: right;
+    }
+    &__view-toggle {
+        float: right;
+        width: 26px;
+        height: 20px;
+        margin: 4px;
+        cursor: pointer;
+        &:first-child {
+            @media #{$mobile} {
+                margin-right: 125px;
+            }
+        }
+    }
+    &__tool-tip {
+        display: none;
+        background-color: snow;
+        position: absolute;
+        z-index: 1000;
+        width: 150px;
+        height: auto;
+        border-radius: 4px;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        text-align: left;
+        padding: 5px;
+        color: $COLOR_BLACK;
+        font: Regular 14px "Source Sans Pro";
+        letter-spacing: 0.2px;
+    }
+    &__circle {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        color: $COLOR_DARK_BLUE;
+        text-align: center;
+        vertical-align: middle;
+        background: $COLOR_TEXT_WHITE;
+        border: 1px solid $COLOR_DARK_BLUE;
+        margin-left: 10px;
+        margin-top: 15px;
+        cursor: help;
+        &-text {
+            font: SemiBold 14px "Source Sans Pro" !important;
+            letter-spacing: 0.17px;
+            color: $COLOR_DARK_BLUE;
+            margin-top: -2px;
+        }
+        &:hover .search-overview__tool-tip {
+            display: block;
+        }
+    }
+    &__help {
+        float: right;
+        display: none; // flex;
+        position: absolute;
+        right: 55px;
+        top: 80px;
+        &-circle {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            color: $COLOR_TEXT_WHITE;
+            text-align: center;
+            vertical-align: middle;
+            background: $COLOR_DARK_BLUE;
+            border: 1px solid $COLOR_DARK_BLUE;
+            cursor: help;
+            margin-right: 8px;
+            &-text {
+                font: SemiBold 14px "Source Sans Pro" !important;
+                letter-spacing: 0.17px;
+                color: $COLOR_TEXT_WHITE;
+                margin: -2px;
+                font-weight: bolder;
+            }
+            &:hover .search-overview__help__tool-tip {
+                display: block;
+            }
+        }
+        &__tool-tip {
+            display: none;
+            background-color: snow;
+            position: absolute;
+            z-index: 1000;
+            width: 150px;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            text-align: left;
+            padding: 5px;
+            color: $COLOR_BLACK;
+            font: Regular 14px "Source Sans Pro";
+            letter-spacing: 0.2px;
+        }
+    }
+    &__buttonGroup {
+        width: 200px;
+        display: block;
+        float: right;
+        right: 10px;
+    }
+    &__buttonIcon {
+        display: block;
+        padding: 10px;
+    }
+    &__label {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+        color: $COLOR_DARK_BLUE;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+    }
+    &__subheading {
+        margin: 10px 20px;
+        font-size: 18px;
+        line-height: 18px;
+        color: $LIGHT_GREY;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+    }
+    &__search-table-container {
+        display: flex;
+        width: 95%;
+    }
+    &__search-left-pane {
+        width: 240px;
+        min-width: 240px;
+        min-height: 400px;
+        margin-top: -20px;
+        padding-top: 10px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+    }
+    &__search-table {
+        flex-grow: 6;
+        margin-left: 15px;
+    }
+    &__error-text {
+        text-align: center;
+        vertical-align: middle;
+        width: 100%;
+    }
+    &__hr-header {
+        border: none;
+        height: 50px;
+        border-bottom: 1px solid light-grey;
+        box-shadow: 0 2px 2px -2px grey;
+        margin: -64px auto 20px;
+        display: block;
+        width: 100%;
+        overflow: visible;
+        @media #{$tablet} {
+            display: block;
+        }
+        @media #{$mobile} {
+            display: block;
+        }
+    }
+}
+
+.table-datatable__root {
+    margin-left: 35px;
+}
+
+.table-datatable__root>tr td {
+    color: $COLOR_BLACK;
+    text-align: left;
+    font: Regular 14px/17px "Source Sans Pro";
+    letter-spacing: 0.2px;
+}
+
+td {
+    cursor: default;
+}
+
+.table-datatable__root>tbody>tr:hover {
+    background: #F4F3FA 0% 0% no-repeat padding-box;
+}
+
+.Select-control {
+    width: 90%;
+}
+
+.loader {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    z-index: 9999;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 15px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: solid #adacac;
+    ;
+    border-width: thin;
+    background-color: #ffffff;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container:hover:disabled input~.checkmark {
+    background-color: #ffffff;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked~.checkmark {
+    background-color: #ffffff;
+}
+
+.container input:disabled:checked~.checkmark:after {
+    border: solid #adacac;
+    background-color: #adacac;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+    left: 3px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    border: solid $COLOR_DARK_BLUE;
+    border-width: thin;
+    background-color: $COLOR_DARK_BLUE;
+}
+
+.advanced_search {
+    display: block;
+    &__title {
+        font-size: 28px;
+        line-height: 17px;
+        color: $COLOR_BLACK;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        margin: -30px 47px 0px;
+        text-align: left;
+    }
+    &__items {
+        margin-left: 30px;
+        margin-top: -15px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    &__subheading {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 24px;
+        color: #5b5b5b;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+    }
+    &__hr-header {
+        width: calc(100% - 90px);
+        margin: 10px 45px !important;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 17px;
+    }
+    &__label {
+        width: 100%;
+        text-align: left;
+        color: $COLOR_DARK_BLUE;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__text {
+        font-size: 14px;
+        letter-spacing: 0;
+        color: $COLOR_BLACK;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+        &-aligned {
+            margin-top: 42px;
+            margin-left: 20px;
+            @media #{$mobile} {
+                margin-top: 12px;
+                margin-left: 0;
+            }
+        }
+        &-disabled {
+            color: $BORDER_COLOR;
+            cursor: not-allowed;
+            &:hover {
+                pointer-events: none;
+            }
+        }
+    }
+    &__submittedby {
+        background-color: transparent;
+        cursor: pointer;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__select {
+        background-color: transparent;
+        height: 35px;
+        width: 170px;
+        margin-bottom: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 3px;
+        &-disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+    }
+    &__input {
+        width: 50%;
+        background-color: transparent;
+        cursor: pointer;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__header {
+        margin: 20px 45px 10px;
+        align-content: left;
+        padding: 10px 0;
+        text-align: center;
+        width: 50%;
+        >input[type="text"] {
+            min-width: 120px;
+            max-width: 300px;
+        }
+    }
+    &__container {
+        @media #{$mobile} {
+            display: flex;
+        }
+        width: 100%;
+        &-item {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            &-content {
+                text-align: left;
+                display: flex;
+                >input[type="search"] {
+                    width: 150px;
+                }
+            }
+        }
+        &-item-last {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+    }
+    &__button {
+        color: $COLOR_TEXT_WHITE;
+        background-color: $COLOR_DARK_BLUE;
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        margin-top: 10px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        text-align: center;
+        &:disabled {
+            color: #999;
+            background-color: $BG_COLOR;
+            border-color: $BG_COLOR;
+            border-bottom-color: $BORDER_COLOR;
+            pointer-events: none;
+        }
+        &:hover:enabled,
+        &:active:enabled,
+        &:focus:enabled {
+            cursor: pointer;
+            text-decoration: none;
+            background-color: $COLOR_HOVER_BLUE;
+            border-color: $COLOR_HOVER_BLUE;
+        }
+    }
+    &__apply-button {
+        color: $COLOR_DARK_BLUE;
+        background-color: $COLOR_TEXT_WHITE;
+        width: 120px;
+        height: 30px;
+        cursor: pointer;
+        border: 1px solid $COLOR_DARK_BLUE;
+        margin-top: 10px;
+        margin-left: 20px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        &:disabled {
+            color: #999;
+            background-color: $BG_COLOR;
+            border-color: $BG_COLOR;
+            border-bottom-color: $BORDER_COLOR;
+            pointer-events: none;
+        }
+        &:hover:enabled,
+        &:active:enabled,
+        &:focus:enabled {
+            cursor: pointer;
+            text-decoration: none;
+            background-color: $COLOR_HOVER_BLUE;
+            border-color: $COLOR_HOVER_BLUE;
+            color: $COLOR_TEXT_WHITE;
+            background-color: $COLOR_DARK_BLUE;
+        }
+    }
+    &__date-picker {
+        display: flex;
+    }
+}
+
+input[type="date"] {
+    position: relative;
+    height: 35px;
+    width: 170px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    color: black;
+}
+
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+
+input[type="date"]:after {
+    font-family: "FontAwesome";
+    font-weight: 900;
+    content: "\f073";
+    color: $COLOR_DARK_BLUE;
+    padding: 0 5px;
+}
+
+
+/* change color of symbol on hover */
+
+input[type="date"]:hover:after {
+    color: COLOR_TEXT_WHITE;
+}
+
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 40px;
+    color: transparent;
+    background: transparent;
+}
+
+
+/* adjust increase/decrease button */
+
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+}
+
+
+/* adjust clear button */
+
+input[type="date"]::-webkit-clear-button {
+    z-index: 1;
+}
+
+.searchinput {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+}
+
+.home {
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-weight: 400;
+    &__inline {
+        display: block;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        @media #{$mobile} {
+            display: flex;
+            padding: 0 30px 0 60px;
+        }
+    }
+    &__search-item {
+        margin-top: 5px;
+        margin-bottom: 63px;
+    }
+    &__search-container {
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 520px;
+    }
+    &__header-title {
+        font-size: 24px;
+        line-height: 30px;
+        color: $COLOR_BLACK;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+        margin-top: 80px;
+    }
+    &__header-text {
+        margin-top: 50px;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: 30px;
+        color: $COLOR_BLACK;
+        font-family: "Georgia";
+    }
+    &__header-label {
+        font-size: 16px;
+        line-height: 24px;
+        color: $COLOR_BLACK;
+        font-family: "Source Sans Pro";
+        font-weight: 400;
+    }
+    &__header {
+        padding-top: 133px;
+        align-content: center;
+        justify-content: center;
+    }
+    &__button-container {
+        padding-left: 0;
+        margin-top: 16px;
+        display: flex;
+        @media #{$desktop} {
+            padding-left: 0;
+            margin-top: 0;
+        }
+        @media #{$tablet} {
+            padding-left: 0;
+            margin-top: 0;
+        }
+        @media #{$mobile} {
+            padding-left: 16px;
+            margin-top: 0;
+        }
+    }
+    &__help {
+        float: right;
+        display: none; // flex;
+        position: absolute;
+        right: 40px;
+        top: -11px;
+        &-circle {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            color: $COLOR_TEXT_WHITE;
+            text-align: center;
+            vertical-align: middle;
+            background: $COLOR_DARK_BLUE;
+            border: 1px solid $COLOR_DARK_BLUE;
+            cursor: help;
+            margin-right: 8px;
+            &-text {
+                font: SemiBold 14px "Source Sans Pro" !important;
+                letter-spacing: 0.17px;
+                color: $COLOR_TEXT_WHITE;
+                margin: -2px;
+                font-weight: bolder;
+            }
+            &:hover .home__help__tool-tip {
+                display: block;
+            }
+        }
+    }
+    &__container {
+        display: block;
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    /* On mouse-over, add a grey background color */
+    &__container:hover input~.checkmark {
+        background-color: #ccc;
+    }
+    /* When the checkbox is checked, add a blue background */
+    &__container input:checked~.checkmark {
+        background-color: #ffffff;
+    }
+    &__container input:disabled~.checkmark:after {
+        border: solid #adacac;
+        background-color: #adacac;
+    }
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Show the checkmark when checked */
+    &__container input:checked~.checkmark:after {
+        display: block;
+    }
+    /* Style the checkmark/indicator */
+    &__container .checkmark:after {
+        left: 3px;
+        top: 3px;
+        width: 8px;
+        height: 8px;
+        border: solid $COLOR_DARK_BLUE;
+        border-width: thin;
+        background-color: $COLOR_DARK_BLUE;
+    }
+}

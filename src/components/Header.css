@@ -1,0 +1,17 @@
+.header {
+    background-color: white;
+    box-shadow: 0 2px 2px -2px gray;
+    height: 70px;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.header-text {
+    font-weight: 800;
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    color: #555555;
+    cursor: pointer;
+}

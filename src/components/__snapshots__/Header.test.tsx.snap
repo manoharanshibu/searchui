@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders correctly 1`] = `
+<div
+  className="header"
+  onClick={[Function]}
+>
+  <div
+    className="header-text"
+    data-testid="header"
+  >
+    SEARCHUI
+  </div>
+</div>
+`;

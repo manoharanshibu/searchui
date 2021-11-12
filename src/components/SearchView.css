@@ -1,0 +1,50 @@
+.searchinput {
+    color: #fff;
+    background-color: #00008f;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.search-container {
+    margin-top: 30px;
+    width: 100%;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+.radio-container {
+    display: inline-flex;
+    margin: 30px 20px;
+    width: 30%;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+}
+
+.searchicon {
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.searchicon:focus {
+    outline: 0;
+}
